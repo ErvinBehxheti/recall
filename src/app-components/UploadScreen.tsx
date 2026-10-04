@@ -194,7 +194,7 @@ function Hero(props: {
       </div>
 
       <figure className="relative mx-auto w-full max-w-[34rem]">
-        <div className="-rotate-[1.2deg] rounded-[2px] border border-rule bg-sheet px-7 py-7 sm:px-9 sm:py-8">
+        <div aria-hidden className="-rotate-[1.2deg] rounded-[2px] border border-rule bg-sheet px-7 py-7 sm:px-9 sm:py-8">
           <LessonPageView
             card={heroDemo.lesson.cards[heroCardIndex]}
             pageNumber={heroCardIndex + 1}

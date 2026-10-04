@@ -4,7 +4,7 @@ import Link from "next/link";
 import { buttonClass } from "@/components/Button";
 import { HighlightSwipe } from "@/components/HighlightSwipe";
 import { MasteryBars } from "@/components/MasteryBars";
-import { buildClassReport } from "@/lib/sample-class";
+import { buildClassReport, insightParts } from "@/lib/sample-class";
 import { SiteHeader } from "./SiteHeader";
 import { useAnimatedValue } from "./useAnimatedValue";
 import { useRequiredLesson } from "./useRequiredLesson";
@@ -17,8 +17,7 @@ export function TeacherScreen() {
 
   const { lesson } = state;
   const report = buildClassReport(lesson);
-  const weakTitle = report.weakest.title.replace(/[.?!:]+$/, "");
-  const [insightLead] = report.insight.split(weakTitle);
+  const insight = insightParts(report);
 
   return (
     <div className="flex min-h-dvh flex-col">
@@ -42,14 +41,9 @@ export function TeacherScreen() {
             What to do next
           </h2>
           <p className="font-serif text-[clamp(1.5rem,3.2vw,2.25rem)] leading-snug">
-            {report.insight.includes(weakTitle) ? (
-              <>
-                {insightLead}
-                <HighlightSwipe progress={swipe}>{weakTitle}</HighlightSwipe>.
-              </>
-            ) : (
-              report.insight
-            )}
+            {insight.before}
+            {insight.highlight && <HighlightSwipe progress={swipe}>{insight.highlight}</HighlightSwipe>}
+            {insight.after}
           </p>
           <Link
             href={`/lesson/${report.weakest.pageNumber}?review=1`}

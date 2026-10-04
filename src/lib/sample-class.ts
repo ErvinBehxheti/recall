@@ -55,6 +55,14 @@ const average = (values: number[]) => values.reduce((a, b) => a + b, 0) / values
 const clamp = (v: number) => Math.min(100, Math.max(5, Math.round(v)));
 const bare = (title: string) => title.replace(/[.?!:]+$/, "");
 
+/** The insight sentence split around the weakest topic's title, so the title can be highlighted in place. */
+export function insightParts(report: ClassReport): { before: string; highlight: string; after: string } {
+  const highlight = bare(report.weakest.title);
+  const at = report.insight.indexOf(highlight);
+  if (at === -1) return { before: report.insight, highlight: "", after: "" };
+  return { before: report.insight.slice(0, at), highlight, after: report.insight.slice(at + highlight.length) };
+}
+
 export function buildClassReport(lesson: Lesson): ClassReport {
   const rng = mulberry32(lessonSeed(lesson));
   const weak = weakCardIndex(lesson);

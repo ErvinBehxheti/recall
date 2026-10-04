@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildClassReport, CLASS_NAMES, weakCardIndex } from "./sample-class";
+import { buildClassReport, CLASS_NAMES, insightParts, weakCardIndex } from "./sample-class";
 import { makeLesson } from "./test-fixtures";
 
 describe("buildClassReport", () => {
@@ -43,6 +43,17 @@ describe("buildClassReport", () => {
       expect(weakest.struggling).toBeLessThanOrEqual(20);
       expect(weakest.percent).toBeLessThan(60);
     }
+  });
+
+  it("splits the insight around the topic title without losing any words", () => {
+    const report = buildClassReport(lesson);
+    const parts = insightParts(report);
+    expect(parts.highlight).toBe(report.weakest.title);
+    expect(parts.before + parts.highlight + parts.after).toBe(report.insight);
+
+    const solid = { ...report, insight: "The class is solid on every topic. Lowest: Topic 2 at 72%." };
+    const solidParts = insightParts({ ...solid, weakest: { ...report.weakest, title: "Topic 2?" } });
+    expect(solidParts).toEqual({ before: "The class is solid on every topic. Lowest: ", highlight: "Topic 2", after: " at 72%." });
   });
 
   it("keeps every percent between 0 and 100", () => {

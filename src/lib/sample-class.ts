@@ -61,7 +61,7 @@ export function buildClassReport(lesson: Lesson): ClassReport {
 
   const students = CLASS_NAMES.map((name) => {
     const ability = 55 + rng() * 40;
-    const scores = lesson.cards.map((_, i) => clamp(ability + (rng() - 0.5) * 30 - (i === weak ? 35 : 0)));
+    const scores = lesson.cards.map((_, i) => clamp(ability + (rng() - 0.5) * 30 - (i === weak ? 20 : 0)));
     return { name, scores };
   });
 

@@ -36,6 +36,15 @@ describe("buildClassReport", () => {
     expect([...averages].sort((a, b) => a - b)).toEqual(averages);
   });
 
+  it("keeps the struggling count believable, roughly half the class", () => {
+    for (const title of ["Test Lesson", "A", "B", "C", "D", "E"]) {
+      const { weakest } = buildClassReport(makeLesson({ title }));
+      expect(weakest.struggling).toBeGreaterThanOrEqual(8);
+      expect(weakest.struggling).toBeLessThanOrEqual(20);
+      expect(weakest.percent).toBeLessThan(60);
+    }
+  });
+
   it("keeps every percent between 0 and 100", () => {
     for (const t of buildClassReport(lesson).topics) {
       expect(t.percent).toBeGreaterThanOrEqual(0);

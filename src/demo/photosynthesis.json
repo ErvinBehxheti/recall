@@ -1,0 +1,116 @@
+{
+  "source": "placeholder",
+  "slideCount": 18,
+  "lesson": {
+    "title": "Photosynthesis",
+    "subject": "Biology",
+    "cards": [
+      {
+        "id": "c1",
+        "title": "What photosynthesis is",
+        "explanation": "Photosynthesis is how plants make their own food. They use energy from sunlight to turn water and carbon dioxide into a sugar called glucose. Oxygen is released as a by-product.",
+        "keyPoints": ["Plants make their food instead of eating it", "Sunlight provides the energy", "Glucose is the food and oxygen is the by-product"],
+        "rememberThis": "Plants use light energy to turn water and carbon dioxide into glucose and oxygen."
+      },
+      {
+        "id": "c2",
+        "title": "What plants take in",
+        "explanation": "Plants need three things for photosynthesis. Roots pull water up from the soil. Tiny holes in the leaves called stomata let carbon dioxide in from the air, and the leaves catch the sunlight.",
+        "keyPoints": ["Water comes in through the roots", "Carbon dioxide enters through stomata in the leaves", "Leaves catch the sunlight"],
+        "rememberThis": "The inputs are water, carbon dioxide and light."
+      },
+      {
+        "id": "c3",
+        "title": "Chlorophyll and chloroplasts",
+        "explanation": "Photosynthesis happens inside chloroplasts, small parts found in leaf cells. Chloroplasts contain chlorophyll, a green pigment that absorbs light. Chlorophyll absorbs red and blue light best and reflects green light, which is why leaves look green.",
+        "keyPoints": ["Chloroplasts are where photosynthesis happens", "Chlorophyll is the pigment that absorbs light", "Green light is reflected, so leaves look green"],
+        "rememberThis": "Chlorophyll inside the chloroplasts captures the light energy."
+      },
+      {
+        "id": "c4",
+        "title": "Light reactions",
+        "explanation": "The first stage needs light, so it is called the light-dependent reactions. Light energy splits water molecules apart. This releases oxygen and stores energy in two carrier molecules called ATP and NADPH.",
+        "keyPoints": ["Happens in the thylakoid membranes of the chloroplast", "Water is split and oxygen is released", "Energy is stored in ATP and NADPH"],
+        "rememberThis": "The oxygen we breathe comes from water split during the light reactions."
+      },
+      {
+        "id": "c5",
+        "title": "The Calvin cycle",
+        "explanation": "The second stage does not need light directly. It uses the energy stored in ATP and NADPH to turn carbon dioxide into glucose. This stage happens in the stroma, the fluid inside the chloroplast.",
+        "keyPoints": ["Also called the light-independent reactions", "Carbon dioxide is fixed into sugar", "Powered by ATP and NADPH from the light reactions"],
+        "rememberThis": "The Calvin cycle builds glucose from carbon dioxide."
+      },
+      {
+        "id": "c6",
+        "title": "What plants make",
+        "explanation": "The products of photosynthesis are glucose and oxygen. Plants burn glucose for energy and use it to build cellulose for their cell walls. Extra glucose is stored as starch for later.",
+        "keyPoints": ["Glucose gives the plant energy", "Glucose builds cellulose and is stored as starch", "Oxygen leaves the leaf through the stomata"],
+        "rememberThis": "Carbon dioxide and water, with light, become glucose and oxygen."
+      },
+      {
+        "id": "c7",
+        "title": "Why it matters for life on Earth",
+        "explanation": "Almost every food chain starts with photosynthesis, because plants are the producers that animals eat. Photosynthesis also puts oxygen into the air and takes carbon dioxide out. Without it, most life on Earth could not survive.",
+        "keyPoints": ["Plants are producers at the start of food chains", "It adds oxygen to the air", "It removes carbon dioxide from the air"],
+        "rememberThis": "Photosynthesis feeds food chains and refills the air with oxygen."
+      },
+      {
+        "id": "c8",
+        "title": "What changes the speed",
+        "explanation": "The rate of photosynthesis depends on light, carbon dioxide and temperature. Raising one speeds it up only until another runs short, and that one is called the limiting factor. Too much heat damages the enzymes, so the rate drops.",
+        "keyPoints": ["Brighter light speeds it up, up to a point", "More carbon dioxide speeds it up, up to a point", "Enzymes work best when warm, and heat damages them"],
+        "rememberThis": "Light, carbon dioxide and temperature control how fast photosynthesis goes."
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "Through which part of the leaf does carbon dioxide enter?",
+        "options": ["The roots", "The stomata", "The chlorophyll", "The stem"],
+        "correctIndex": 1,
+        "explanation": "Stomata are tiny holes in the leaf that let carbon dioxide in.",
+        "cardId": "c2"
+      },
+      {
+        "id": "q2",
+        "question": "Why do most leaves look green?",
+        "options": ["Chlorophyll reflects green light", "Chlorophyll absorbs green light", "Glucose is green", "Stomata are green"],
+        "correctIndex": 0,
+        "explanation": "Chlorophyll absorbs red and blue light and reflects green, so we see green.",
+        "cardId": "c3"
+      },
+      {
+        "id": "q3",
+        "question": "Where does the oxygen released by plants come from?",
+        "options": ["Carbon dioxide", "Glucose", "Water", "Chlorophyll"],
+        "correctIndex": 2,
+        "explanation": "During the light reactions, water is split and its oxygen is released.",
+        "cardId": "c4"
+      },
+      {
+        "id": "q4",
+        "question": "What does the Calvin cycle make?",
+        "options": ["Oxygen", "Water", "Chlorophyll", "Glucose"],
+        "correctIndex": 3,
+        "explanation": "The Calvin cycle uses ATP and NADPH to turn carbon dioxide into glucose.",
+        "cardId": "c5"
+      },
+      {
+        "id": "q5",
+        "question": "Why are plants called producers?",
+        "options": ["They produce oxygen only", "They make their own food from light", "They produce water", "They eat other living things"],
+        "correctIndex": 1,
+        "explanation": "Plants make their own food, so food chains start with them.",
+        "cardId": "c7"
+      },
+      {
+        "id": "q6",
+        "question": "A plant gets more light but its rate of photosynthesis stays the same. Why?",
+        "options": ["Light never affects the rate", "The plant stopped making chlorophyll", "Another factor, like carbon dioxide, is now limiting", "Glucose blocks the light"],
+        "correctIndex": 2,
+        "explanation": "Once light is plentiful, the factor in shortest supply limits the rate.",
+        "cardId": "c8"
+      }
+    ]
+  }
+}

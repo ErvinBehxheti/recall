@@ -1,0 +1,109 @@
+{
+  "source": "placeholder",
+  "slideCount": 14,
+  "lesson": {
+    "title": "Causes of World War I",
+    "subject": "History",
+    "cards": [
+      {
+        "id": "c1",
+        "title": "Europe in 1914",
+        "explanation": "In 1914 Europe was led by a few powerful empires, including Britain, France, Germany, Russia and Austria-Hungary. They competed for land, trade and influence. Historians often sum up the long-term causes of the war with the word MAIN.",
+        "keyPoints": ["A handful of great powers dominated Europe", "They competed for land, trade and power", "MAIN stands for militarism, alliances, imperialism and nationalism"],
+        "rememberThis": "MAIN names the four long-term causes: militarism, alliances, imperialism and nationalism."
+      },
+      {
+        "id": "c2",
+        "title": "Militarism",
+        "explanation": "Militarism means building up armed forces and trusting them to solve problems. Germany and Britain raced to build bigger navies, especially huge battleships called dreadnoughts. Countries also made detailed war plans, like Germany's Schlieffen Plan.",
+        "keyPoints": ["Armies and navies grew fast before 1914", "Britain and Germany had a naval race", "Ready-made war plans made fighting start fast"],
+        "rememberThis": "An arms race left the great powers ready, and quick, to fight."
+      },
+      {
+        "id": "c3",
+        "title": "Alliances",
+        "explanation": "The great powers split into two groups that promised to defend each other. The Triple Alliance joined Germany, Austria-Hungary and Italy. The Triple Entente joined France, Russia and Britain. These promises meant a small conflict could pull in many countries.",
+        "keyPoints": ["Triple Alliance: Germany, Austria-Hungary and Italy", "Triple Entente: France, Russia and Britain", "Alliances could turn a local war into a world war"],
+        "rememberThis": "Alliances meant one country's war could drag its partners in."
+      },
+      {
+        "id": "c4",
+        "title": "Imperialism",
+        "explanation": "Imperialism is when a country builds an empire by taking control of other lands. Britain and France held huge empires, and Germany wanted one too. Competition for colonies in Africa and Asia created jealousy and distrust.",
+        "keyPoints": ["Empires brought wealth, resources and status", "Germany felt left behind in the race for colonies", "Rivalry over colonies raised tension"],
+        "rememberThis": "Competition for colonies made the great powers suspicious of each other."
+      },
+      {
+        "id": "c5",
+        "title": "Nationalism",
+        "explanation": "Nationalism is strong pride in your own nation, sometimes with the belief that it is better than others. It made many people eager to support a war. In the Balkans, Slavic groups like the Serbs wanted freedom from Austria-Hungary.",
+        "keyPoints": ["Pride in the nation made war popular", "Serbia wanted to unite Slavic peoples", "Austria-Hungary saw Serbian nationalism as a threat"],
+        "rememberThis": "Nationalism made war popular and made the Balkans explosive."
+      },
+      {
+        "id": "c6",
+        "title": "The assassination in Sarajevo",
+        "explanation": "On 28 June 1914, Archduke Franz Ferdinand, heir to the Austro-Hungarian throne, was shot in Sarajevo. The killer, Gavrilo Princip, was a young Bosnian Serb helped by a secret Serbian nationalist group called the Black Hand. Austria-Hungary blamed Serbia.",
+        "keyPoints": ["Franz Ferdinand was killed on 28 June 1914", "Gavrilo Princip was helped by the Black Hand", "Austria-Hungary blamed Serbia"],
+        "rememberThis": "The killing of Franz Ferdinand was the spark that started the war."
+      },
+      {
+        "id": "c7",
+        "title": "How one shot became a world war",
+        "explanation": "Austria-Hungary declared war on Serbia, with Germany's support. Russia mobilized to protect Serbia, so Germany declared war on Russia and then on France. When Germany marched through neutral Belgium, Britain declared war on 4 August 1914.",
+        "keyPoints": ["Austria-Hungary declared war on Serbia", "Alliances pulled in Russia, Germany and France", "Germany invading Belgium brought Britain in"],
+        "rememberThis": "Within weeks, the alliance system turned one murder into a world war."
+      }
+    ],
+    "quiz": [
+      {
+        "id": "q1",
+        "question": "What does the M in MAIN stand for?",
+        "options": ["Monarchy", "Militarism", "Migration", "Money"],
+        "correctIndex": 1,
+        "explanation": "MAIN stands for militarism, alliances, imperialism and nationalism.",
+        "cardId": "c1"
+      },
+      {
+        "id": "q2",
+        "question": "Which countries formed the Triple Entente?",
+        "options": ["Germany, Austria-Hungary and Italy", "Britain, Germany and Russia", "France, Russia and Britain", "France, Italy and Serbia"],
+        "correctIndex": 2,
+        "explanation": "The Triple Entente joined France, Russia and Britain.",
+        "cardId": "c3"
+      },
+      {
+        "id": "q3",
+        "question": "What was the naval race before the war?",
+        "options": ["Britain and Germany competing to build bigger navies", "A sailing race between royal families", "France and Russia sharing warships", "Italy building submarines for Serbia"],
+        "correctIndex": 0,
+        "explanation": "Britain and Germany raced to build more and bigger battleships.",
+        "cardId": "c2"
+      },
+      {
+        "id": "q4",
+        "question": "Who was assassinated in Sarajevo in June 1914?",
+        "options": ["The Tsar of Russia", "Kaiser Wilhelm II", "Gavrilo Princip", "Archduke Franz Ferdinand"],
+        "correctIndex": 3,
+        "explanation": "Gavrilo Princip shot Archduke Franz Ferdinand, heir to Austria-Hungary.",
+        "cardId": "c6"
+      },
+      {
+        "id": "q5",
+        "question": "Why did Austria-Hungary see Serbia as a threat?",
+        "options": ["Serbia had a bigger navy", "Serbian nationalism encouraged Slavs to break away", "Serbia had colonies in Africa", "Serbia was part of the Triple Alliance"],
+        "correctIndex": 1,
+        "explanation": "Serbian nationalism encouraged Slavic peoples inside Austria-Hungary to want independence.",
+        "cardId": "c5"
+      },
+      {
+        "id": "q6",
+        "question": "What finally brought Britain into the war?",
+        "options": ["The naval race", "Germany invading neutral Belgium", "The death of Franz Ferdinand", "Russia declaring war on Britain"],
+        "correctIndex": 1,
+        "explanation": "Britain had promised to protect Belgium, so the German invasion brought Britain in.",
+        "cardId": "c7"
+      }
+    ]
+  }
+}

@@ -28,3 +28,6 @@ next-env.d.ts
 
 # superpowers scratch
 .superpowers/
+
+# browser tooling output
+/.playwright-mcp/

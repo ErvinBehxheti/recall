@@ -164,7 +164,7 @@ Validation beyond the schema (`validateLesson`): card and question counts within
 - Output: class average, per-card mastery percent, the weakest card, and the 3 to 5 students with the lowest averages.
 
 Screen content, in order:
-1. Insight sentence written from data: "Most of the class missed **{weak card title}**. Re-teach page {n}." (variant when no card is below 60%: "The class is solid on every topic. Lowest: {title} at {p}%.")
+1. Insight sentence written from data: "**{count} of {classSize} students struggled with {weak card title}.**" followed by the action "Re-teach page {n}." A student "struggled" when their mastery of that card is below 60%. Variant when the weakest card averages 60% or more: "The class is solid on every topic. Lowest: {title} at {p}%."
 2. Topic mastery: one row per card: page number, title, bar, percent. 3 to 4 columns, no table borders.
 3. Students who need help: name, average, weakest topic.
 4. Badge "Preview · sample class data" next to the page title.

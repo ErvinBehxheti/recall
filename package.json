@@ -11,7 +11,7 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "decks": "node scripts/build-sample-decks.mjs",
-    "make-demos": "tsx --env-file=.env.local scripts/make-demos.ts"
+    "make-demos": "tsx --env-file-if-exists=.env.local scripts/make-demos.mts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0",

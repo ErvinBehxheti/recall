@@ -9,8 +9,8 @@
   --color-ink-soft: #4a5163;
   --color-rule: #d9d0bf;
   --color-highlight: #f2d04b;
-  --color-right: #2f7d5b;
-  --color-wrong: #b4443a;
+  --color-correct: #2f7d5b;
+  --color-incorrect: #b4443a;
   --font-serif: var(--font-literata), Georgia, serif;
   --font-sans: var(--font-atkinson), system-ui, sans-serif;
   --radius-sm: 2px;

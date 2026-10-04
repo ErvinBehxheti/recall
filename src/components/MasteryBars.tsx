@@ -12,11 +12,11 @@ export function MasteryBars({ topics, grow, highlightCardId }: Props) {
             <span className="font-serif text-ink-soft tabular-nums">{t.pageNumber}</span>
             <span className="leading-snug">
               {t.title}
-              {weak && <span className="block text-[0.875rem] text-wrong">Needs re-teaching</span>}
+              {weak && <span className="block text-[0.875rem] text-incorrect">Needs re-teaching</span>}
             </span>
             <span className="col-span-3 col-start-1 row-start-2 h-2 self-center rounded-sm bg-rule sm:col-span-1 sm:col-start-3 sm:row-start-1">
               <span
-                className={`block h-full rounded-sm ${weak ? "bg-wrong" : "bg-ink"}`}
+                className={`block h-full rounded-sm ${weak ? "bg-incorrect" : "bg-ink"}`}
                 style={{ width: `${t.percent * Math.min(1, Math.max(0, grow))}%` }}
               />
             </span>

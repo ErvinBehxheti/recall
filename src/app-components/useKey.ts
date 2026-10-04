@@ -19,7 +19,8 @@ export function useKey(key: string, handler: () => void, enabled = true) {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key.toLowerCase() !== key.toLowerCase()) return;
       if (event.metaKey || event.ctrlKey || event.altKey || event.repeat) return;
-      const target = event.target as HTMLElement | null;
+      // The target can be the window or document, which are not elements.
+      const target = event.target instanceof HTMLElement ? event.target : null;
       if (target && (target.isContentEditable || TYPING.has(target.tagName))) return;
       if ((key === "Enter" || key === " ") && target?.closest("button, a")) return;
       event.preventDefault();

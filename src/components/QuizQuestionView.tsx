@@ -21,8 +21,8 @@ function optionState(index: number, question: Question, selectedIndex: number | 
 const STATE_CLASS: Record<OptionState, string> = {
   idle: "bg-paper-raised hover:bg-[#e6dccb]",
   selected: "bg-ink text-paper",
-  right: "bg-right text-paper",
-  wrong: "bg-wrong text-paper",
+  right: "bg-correct text-paper",
+  wrong: "bg-incorrect text-paper",
   dim: "bg-paper-raised text-ink-soft",
 };
 
@@ -63,7 +63,7 @@ export function QuizQuestionView({ question, number, total, selectedIndex, revea
       </ol>
       {revealed && (
         <p role="status" className="mt-6 max-w-[60ch] font-serif text-[1.25rem] leading-relaxed">
-          <strong className={gotItRight ? "text-right" : "text-wrong"}>{gotItRight ? "Right." : "Not quite."}</strong>{" "}
+          <strong className={gotItRight ? "text-correct" : "text-incorrect"}>{gotItRight ? "Right." : "Not quite."}</strong>{" "}
           {question.explanation}
         </p>
       )}

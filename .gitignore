@@ -1,8 +1,30 @@
-node_modules/
-.next/
-out/
-.env*.local
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# testing
+/coverage
+/test-results/
+/playwright-report/
+
+# next.js
+/.next/
+/out/
+/build
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+
+# env files (the example is committed)
+.env*
+!.env.example
+
+# typescript
 *.tsbuildinfo
 next-env.d.ts
-test-results/
-playwright-report/
+
+# superpowers scratch
+.superpowers/

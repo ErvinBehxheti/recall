@@ -1,10 +1,12 @@
 // src/server/limiters.ts
+import { createLoginThrottle } from "./login-throttle";
 import { createLimiter } from "./rate-limit";
 
-const holder = globalThis as unknown as { __slidekickLimiters?: { login: ReturnType<typeof createLimiter>; join: ReturnType<typeof createLimiter> } };
-holder.__slidekickLimiters ??= { login: createLimiter(5, 60_000), join: createLimiter(5, 60_000) };
+type Throttles = { login: ReturnType<typeof createLoginThrottle>; join: ReturnType<typeof createLimiter> };
+const holder = globalThis as unknown as { __slidekickThrottles?: Throttles };
+holder.__slidekickThrottles ??= { login: createLoginThrottle(), join: createLimiter(5, 60_000) };
 
-/** Keyed by IP and login name, so one mistyped login on a shared laptop cannot lock out a class. */
-export const loginLimiter = holder.__slidekickLimiters.login;
+/** Failed logins, limited per client and login name and also per login name alone. */
+export const loginThrottle = holder.__slidekickThrottles.login;
 /** Keyed by student id. */
-export const joinLimiter = holder.__slidekickLimiters.join;
+export const joinLimiter = holder.__slidekickThrottles.join;

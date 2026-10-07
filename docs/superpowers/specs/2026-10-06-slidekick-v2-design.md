@@ -54,7 +54,7 @@ Rules:
   - `proxy.ts` replaces `middleware.ts`. It runs on the Node runtime. It does an optimistic check only (is the cookie present, redirect to `/login` if not) and never touches the database.
   - The real check is a data access layer, `src/server/auth.ts`, with `verifySession()` (memoized with React `cache`) and `requireRole(role)`. Every route handler, server action and page that reads data calls it first.
 - Ownership checks live in the same layer: a teacher can touch only their own classes and lessons, a student can read only lessons of classes they are enrolled in and only if `status = 'published'`.
-- Rate limiting: failed logins are limited per IP and login name, and wrong join codes per student account (5 failures per minute, in memory), so one mistyped login on a shared laptop cannot lock out a class. Join codes are 6 characters from an alphabet without look-alike letters.
+- Rate limiting: failed logins are limited per IP and login name (5 failures per minute) and also per login name alone (20 failures per 10 minutes), because the IP comes from a header a client can set. Wrong join codes are limited per student account (5 failures per minute). All in memory, so one mistyped login on a shared laptop cannot lock out a class. Join codes are 6 characters from an alphabet without look-alike letters.
 - `/api/generate` requires a teacher session. This also closes the open-API-key gap from the MVP.
 
 ## 6. Screens and routes

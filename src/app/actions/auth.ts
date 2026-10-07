@@ -8,7 +8,7 @@ import { authenticate, createStudent, createTeacher, type SessionUser } from "@/
 import { clientIp, endSession, startSession } from "@/server/auth";
 import { getDb } from "@/server/db";
 import { InputError } from "@/server/errors";
-import { loginLimiter } from "@/server/limiters";
+import { loginThrottle } from "@/server/limiters";
 
 const field = (data: FormData, name: string) => String(data.get(name) ?? "");
 
@@ -42,14 +42,14 @@ export async function signupStudent(_state: FormState, formData: FormData): Prom
 
 export async function login(_state: FormState, formData: FormData): Promise<FormState> {
   const loginName = field(formData, "login").trim();
-  const key = `${await clientIp()}|${loginName.toLowerCase()}`;
-  if (loginLimiter.blocked(key)) return { error: "Too many tries. Wait a minute and try again." };
+  const ip = await clientIp();
+  if (loginThrottle.blocked(ip, loginName)) return { error: "Too many tries. Wait a few minutes and try again." };
   const user = await authenticate(getDb(), loginName, field(formData, "password"));
   if (!user) {
-    loginLimiter.fail(key);
+    loginThrottle.fail(ip, loginName);
     return { error: "That login name or password is wrong." };
   }
-  loginLimiter.reset(key);
+  loginThrottle.reset(ip, loginName);
   await startSession(user.id);
   redirect(homeFor(user.role));
 }

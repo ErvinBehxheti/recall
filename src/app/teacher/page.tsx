@@ -6,10 +6,12 @@ import { SUBJECT_LABELS, SUBJECTS } from "@/lib/subjects";
 import { requireUser } from "@/server/auth";
 import { listTeacherClasses } from "@/server/classes";
 import { getDb } from "@/server/db";
+import { listAttention } from "@/server/results";
 
 export default async function TeacherHome() {
   const user = await requireUser("teacher");
   const classes = listTeacherClasses(getDb(), user);
+  const attention = listAttention(getDb(), user);
   return (
     <PageShell user={user}>
       <PageTitle>Your classes</PageTitle>
@@ -37,6 +39,17 @@ export default async function TeacherHome() {
                         {c.lessonCount === 1 ? "lesson" : "lessons"}
                       </span>
                     </Link>
+                    {attention
+                      .filter((a) => a.classId === c.id)
+                      .map((a) => (
+                        <Link
+                          key={a.lessonId}
+                          href={`/teacher/lessons/${a.lessonId}/results`}
+                          className="block rounded-[4px] px-4 pb-2 text-incorrect hover:underline"
+                        >
+                          {a.lessonTitle}: page {a.pageNumber} needs re-teaching.
+                        </Link>
+                      ))}
                   </li>
                 ))}
               </ul>

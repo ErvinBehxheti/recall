@@ -1,4 +1,4 @@
-import type { TopicMastery } from "@/lib/sample-class";
+import type { TopicMastery } from "@/lib/class-report";
 
 type Props = { topics: TopicMastery[]; grow: number; highlightCardId?: string };
 

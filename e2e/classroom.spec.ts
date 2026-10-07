@@ -82,3 +82,43 @@ test("a student outside the class gets nothing from the lesson pages or the quiz
   const answer = await outsider.request.post(`/api/learn/attempts/1/answers`, { data: { qid: "q1", index: 0 } });
   expect(answer.status()).toBe(404);
 });
+
+test("the teacher sees real results from two students", async ({ page, browser }) => {
+  await signupTeacher(page);
+  const { code, lessonId } = await publishSampleLesson(page);
+
+  async function studentTakesQuiz(name: string, wrongFirst: boolean) {
+    const student = await (await browser.newContext()).newPage();
+    await signupStudent(student, name);
+    await joinClass(student, code);
+    await student.goto(`/learn/lessons/${lessonId}/quiz`);
+    await student.getByRole("button", { name: "Start quiz" }).click();
+    await expect(student.getByText(`Question 1 of ${total}`)).toBeVisible();
+    for (let i = 0; i < total; i++) await answerCurrentQuestion(student, !(wrongFirst && i === 0));
+    await expect(student).toHaveURL(/\/results\?attempt=\d+$/);
+  }
+  await studentTakesQuiz("Mira", true);
+  await studentTakesQuiz("Leon", false);
+
+  await page.goto(`/teacher/lessons/${lessonId}/results`);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(lesson.title);
+  await expect(page.getByRole("row", { name: new RegExp(`Mira ${total - 1} / ${total}`) })).toBeVisible();
+  await expect(page.getByRole("row", { name: new RegExp(`Leon ${total} / ${total}`) })).toBeVisible();
+  await expect(page.getByRole("link", { name: /^Re-teach page \d+$/ })).toBeVisible();
+  await expect(page.getByText("Based on 2 of 2 students")).toBeVisible();
+});
+
+test("the results page explains when nobody has finished", async ({ page }) => {
+  await signupTeacher(page);
+  const { lessonId } = await publishSampleLesson(page);
+  await page.goto(`/teacher/lessons/${lessonId}/results`);
+  await expect(page.getByText("No results yet.")).toBeVisible();
+});
+
+test("another teacher cannot read the results", async ({ page, browser }) => {
+  await signupTeacher(page);
+  const { lessonId } = await publishSampleLesson(page);
+  const other = await (await browser.newContext()).newPage();
+  await signupTeacher(other, "Ms Two");
+  expect((await other.goto(`/teacher/lessons/${lessonId}/results`))?.status()).toBe(404);
+});

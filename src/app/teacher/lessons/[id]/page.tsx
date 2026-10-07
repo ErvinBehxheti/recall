@@ -31,7 +31,10 @@ export default async function LessonReviewPage({ params }: { params: Promise<{ i
           <p className="mt-4 max-w-[52ch] text-[1.125rem]">
             Students in {stored.className} can open this lesson. It is read-only while it is published.
           </p>
-          <div className="mt-6">
+          <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <Link href={`/teacher/lessons/${stored.id}/results`} className={buttonClass("primary")}>
+              See results
+            </Link>
             <UnpublishButton lessonId={stored.id} />
           </div>
           <ol className="mt-12 grid max-w-3xl gap-8">

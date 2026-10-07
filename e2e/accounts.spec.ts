@@ -42,3 +42,12 @@ test("a wrong password shows a plain error and stays on the login page", async (
   await expect(page.locator("main").getByRole("alert")).toHaveText("That login name or password is wrong.");
   await expect(page).toHaveURL(/\/login$/);
 });
+
+test("the home page sells the idea and sends a logged-in teacher to their classes", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Turn tonight's slides");
+  await expect(page.getByRole("link", { name: "Get started" })).toBeVisible();
+  await signupTeacher(page);
+  await page.goto("/");
+  await expect(page).toHaveURL(/\/teacher$/);
+});

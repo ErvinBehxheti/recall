@@ -17,7 +17,7 @@ test("a teacher creates a Biology class and a student joins it with the code", a
 
   await student.goto("/learn");
   await expect(student.getByRole("link", { name: /Chemistry/ })).toContainText("Enter a class code");
-  await expect(student.getByRole("link", { name: /Biology/ })).toContainText("8A Biology");
+  await expect(student.getByRole("link", { name: /Biology/ })).toContainText("No lessons yet");
 
   await page.goto(url);
   await expect(page.getByText("1 student")).toBeVisible();

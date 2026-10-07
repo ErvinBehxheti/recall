@@ -53,3 +53,14 @@ export async function joinClass(page: Page, code: string) {
   await page.getByLabel("Class code").fill(code);
   await page.getByRole("button", { name: "Join class" }).click();
 }
+
+/** Teacher: create a Biology class, upload the sample deck (fake AI) and publish it. */
+export async function publishSampleLesson(page: Page, className = "8A Biology") {
+  const { code, url } = await createClass(page, "biology", className);
+  await page.locator('input[type="file"]').setInputFiles("samples/pdf/photosynthesis.pdf");
+  await expect(page).toHaveURL(/\/teacher\/lessons\/\d+$/, { timeout: 30_000 });
+  const lessonId = Number(page.url().match(/lessons\/(\d+)/)![1]);
+  await page.getByRole("button", { name: "Publish" }).click();
+  await expect(page.getByText("can open this lesson")).toBeVisible();
+  return { code, classUrl: url, lessonId };
+}

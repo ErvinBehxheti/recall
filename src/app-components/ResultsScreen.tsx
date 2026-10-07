@@ -78,7 +78,7 @@ export function ResultsScreen() {
               Retry missed questions
             </Button>
           )}
-          <Link href="/teacher" className={buttonClass(score.missed.length > 0 ? "quiet" : "primary")}>
+          <Link href="/sample-teacher" className={buttonClass(score.missed.length > 0 ? "quiet" : "primary")}>
             Teacher view
           </Link>
           <Button

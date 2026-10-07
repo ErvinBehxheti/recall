@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useReducer, useRef, useState } from "react";
-import { Button } from "@/components/Button";
+import { Button, buttonClass } from "@/components/Button";
 import { LessonPageView } from "@/components/LessonPageView";
 import { LessonSkeleton } from "@/components/LessonSkeleton";
 import { BRAND } from "@/config/brand";
@@ -108,7 +109,13 @@ export function UploadScreen() {
 
   return (
     <div className="flex min-h-dvh flex-col" {...dropHandlers}>
-      <SiteHeader />
+      <SiteHeader
+        right={
+          <Link href="/login" className={buttonClass("quiet")}>
+            Log in
+          </Link>
+        }
+      />
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5 pb-12 pt-2 sm:px-8">
         {state.phase === "idle" && (
           <Hero

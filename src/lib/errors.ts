@@ -8,6 +8,7 @@ export const ERROR_CODES = [
   "ai_unavailable",
   "invalid_output",
   "refused",
+  "unauthorized",
 ] as const;
 export type ErrorCode = (typeof ERROR_CODES)[number];
 
@@ -21,6 +22,7 @@ export const ERROR_MESSAGES: Record<ErrorCode, string> = {
   ai_unavailable: "We couldn't reach the AI. Check the internet and try again.",
   invalid_output: "The AI's lesson came back incomplete. Try again.",
   refused: "The AI couldn't make a lesson from this file.",
+  unauthorized: "Log in as a teacher to upload slides.",
 };
 
 export const ERROR_STATUS: Record<ErrorCode, number> = {
@@ -33,6 +35,7 @@ export const ERROR_STATUS: Record<ErrorCode, number> = {
   ai_unavailable: 502,
   invalid_output: 502,
   refused: 422,
+  unauthorized: 401,
 };
 
 export class LessonError extends Error {

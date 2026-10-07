@@ -3,7 +3,7 @@ import { sanitizeText as s } from "./sanitize";
 
 export type ValidationResult = { ok: true; lesson: Lesson } | { ok: false; problems: string[] };
 
-function sanitizeLesson(lesson: Lesson): Lesson {
+export function sanitizeLesson(lesson: Lesson): Lesson {
   return {
     title: s(lesson.title),
     subject: s(lesson.subject),

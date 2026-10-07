@@ -23,3 +23,15 @@ describe("cardSpeechText", () => {
     );
   });
 });
+
+describe("pickVoice by language", () => {
+  const voices = [
+    { name: "Daniel", lang: "en-GB" },
+    { name: "Ardita", lang: "sq-AL" },
+  ];
+  it("picks a voice that matches the language, or none", () => {
+    expect(pickVoice(voices)).toBe(0);
+    expect(pickVoice(voices, "sq")).toBe(1);
+    expect(pickVoice(voices, "fr")).toBe(-1);
+  });
+});

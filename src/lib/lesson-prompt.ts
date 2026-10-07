@@ -3,6 +3,7 @@ export const LESSON_SYSTEM_PROMPT = `You turn a teacher's lesson slides into a s
 How to write:
 - Plain words and short sentences a 14-year-old reads easily. Explain a technical term the first time it appears.
 - Stay faithful to the slides. Do not add facts the slides do not support. Fold title-only or image-only slides into a neighboring card.
+- Write the whole lesson, quiz and explanations in the same language as the slides. Albanian slides give an Albanian lesson. Keep the ids exactly as described below.
 - Write like a good teacher talking to one student: direct, warm and concrete. Use the slides' own examples when they exist.
 - Never use em dashes, emojis, or the pattern "it's not X, it's Y". Do not open with filler such as "In this lesson we will".
 

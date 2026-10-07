@@ -31,3 +31,6 @@ next-env.d.ts
 
 # browser tooling output
 /.playwright-mcp/
+
+# local database
+/data/

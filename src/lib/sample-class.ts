@@ -1,4 +1,6 @@
 import type { Lesson } from "./lesson-schema";
+import { hashString, mulberry32 } from "./random";
+export { hashString, mulberry32 };
 
 export const CLASS_NAMES = [
   "Arta", "Liam", "Sofia", "Noah", "Amira", "Leon", "Mia", "Yusuf", "Elena", "Kai",
@@ -19,27 +21,6 @@ export type ClassReport = {
   insight: string;
   action: string;
 };
-
-/** FNV-1a 32-bit. */
-export function hashString(text: string): number {
-  let hash = 0x811c9dc5;
-  for (const ch of text) {
-    hash ^= ch.codePointAt(0)!;
-    hash = Math.imul(hash, 0x01000193);
-  }
-  return hash >>> 0;
-}
-
-export function mulberry32(seed: number): () => number {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
 
 export function lessonSeed(lesson: Lesson): number {
   return hashString(`${lesson.title}|${lesson.cards.map((c) => `${c.id}:${c.title}`).join("|")}`);

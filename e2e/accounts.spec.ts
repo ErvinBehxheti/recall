@@ -11,7 +11,8 @@ test("anonymous visitors are sent to the login page", async ({ page }) => {
 
 test("a teacher signs up, logs out, logs back in and cannot open the student area", async ({ page }) => {
   const { email, name } = await signupTeacher(page);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText(`Hello, ${name}`);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Your classes");
+  await expect(page.getByRole("banner")).toContainText(name);
   await page.goto("/learn");
   await expect(page).toHaveURL(/\/teacher$/);
   await logout(page);

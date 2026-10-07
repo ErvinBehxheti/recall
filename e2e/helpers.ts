@@ -12,7 +12,7 @@ export async function signupTeacher(page: Page, name = "Ms Hoxha") {
   await page.getByLabel("Email").fill(email);
   await page.getByLabel("Password").fill(PASSWORD);
   await page.getByRole("button", { name: "Create account" }).click();
-  await expect(page).toHaveURL(/\/teacher$/);
+  await expect(page).toHaveURL((url) => url.pathname === "/teacher");
   return { email, name };
 }
 
@@ -36,4 +36,20 @@ export async function login(page: Page, loginName: string) {
 export async function logout(page: Page) {
   await page.getByRole("button", { name: "Log out" }).click();
   await expect(page).toHaveURL(/\/login$/);
+}
+
+export async function createClass(page: Page, subject = "biology", name = "8A Biology") {
+  await page.goto("/teacher/classes/new");
+  await page.getByLabel("Subject").selectOption(subject);
+  await page.getByLabel("Class name").fill(name);
+  await page.getByRole("button", { name: "Create class" }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(name);
+  const code = (await page.getByTestId("join-code").textContent())!.trim();
+  return { code, url: page.url() };
+}
+
+export async function joinClass(page: Page, code: string) {
+  await page.goto("/join");
+  await page.getByLabel("Class code").fill(code);
+  await page.getByRole("button", { name: "Join class" }).click();
 }

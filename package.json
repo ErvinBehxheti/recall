@@ -12,7 +12,14 @@
     "test:e2e": "playwright test",
     "decks": "node scripts/build-sample-decks.mjs",
     "make-demos": "tsx --env-file-if-exists=.env.local scripts/make-demos.mts",
-    "seed": "tsx --env-file-if-exists=.env.local scripts/seed.mts"
+    "seed": "tsx --env-file-if-exists=.env.local scripts/seed.mts",
+    "video:capture": "tsx scripts/capture-video-assets.mts",
+    "video:frames": "tsx scripts/video-frames.mts",
+    "video:studio": "remotion studio remotion/index.ts",
+    "video:render": "remotion render remotion/index.ts Promo out/promo-raw.mp4",
+    "video:stills": "remotion still remotion/index.ts StageOpen out/stage-open.png && remotion still remotion/index.ts StageClose out/stage-close.png",
+    "video:sfx": "tsx scripts/make-sfx.mts",
+    "video:final": "tsx scripts/make-sfx.mts && bash scripts/finalize-video.sh"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.131.0",
@@ -26,6 +33,12 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",
+    "@remotion/bundler": "4.0.534",
+    "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/paths": "4.0.534",
+    "@remotion/renderer": "4.0.534",
+    "@remotion/tailwind-v4": "4.0.534",
     "@tailwindcss/postcss": "^4",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/react": "^16.3.3",
@@ -36,6 +49,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
     "jsdom": "^30.1.2",
+    "remotion": "4.0.534",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5",

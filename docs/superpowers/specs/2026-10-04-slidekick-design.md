@@ -225,6 +225,8 @@ Direction: **the study desk**. Paper, ink and one highlighter. Calm, typographic
 
 ## 11. Promo video
 
+> Superseded for v2: the video is now 75 seconds and follows `2026-10-07-slidekick-promo-video-design.md`. The table below is the original v1 storyboard, kept for reference.
+
 - 1920×1080, 30fps, ~70s (2100 frames). Music plus on-screen text, no voiceover. Works with the sound off. Minimum on-screen text size 56px.
 - Product shots are the real `src/components/` rendering a real lesson (the default sample).
 - Music: a royalty-free track the user supplies at `public/music/promo.mp3` (YouTube Audio Library or Pixabay Music). If absent, the video renders silent. Beat timings live in `remotion/timing.ts` so cuts can be aligned to the track.

@@ -1,0 +1,156 @@
+{
+  "enrolled": 12,
+  "finished": 10,
+  "classAverage": 67,
+  "topics": [
+    {
+      "cardId": "c2",
+      "pageNumber": 2,
+      "title": "What plants take in",
+      "percent": 90,
+      "struggling": 1
+    },
+    {
+      "cardId": "c3",
+      "pageNumber": 3,
+      "title": "Chlorophyll and chloroplasts",
+      "percent": 80,
+      "struggling": 2
+    },
+    {
+      "cardId": "c4",
+      "pageNumber": 4,
+      "title": "Light reactions",
+      "percent": 20,
+      "struggling": 8
+    },
+    {
+      "cardId": "c5",
+      "pageNumber": 5,
+      "title": "The Calvin cycle",
+      "percent": 90,
+      "struggling": 1
+    },
+    {
+      "cardId": "c7",
+      "pageNumber": 7,
+      "title": "Why it matters for life on Earth",
+      "percent": 50,
+      "struggling": 5
+    },
+    {
+      "cardId": "c8",
+      "pageNumber": 8,
+      "title": "What changes the speed",
+      "percent": 70,
+      "struggling": 3
+    }
+  ],
+  "weakest": {
+    "cardId": "c4",
+    "pageNumber": 4,
+    "title": "Light reactions",
+    "percent": 20,
+    "struggling": 8
+  },
+  "insight": "8 of 10 students struggled with Light reactions.",
+  "action": "Re-teach page 4.",
+  "rows": [
+    {
+      "name": "Leon",
+      "status": "finished",
+      "correctCount": 2,
+      "total": 6,
+      "percent": 33,
+      "weakestTitle": "Chlorophyll and chloroplasts"
+    },
+    {
+      "name": "Noah",
+      "status": "finished",
+      "correctCount": 2,
+      "total": 6,
+      "percent": 33,
+      "weakestTitle": "What plants take in"
+    },
+    {
+      "name": "Mia",
+      "status": "finished",
+      "correctCount": 3,
+      "total": 6,
+      "percent": 50,
+      "weakestTitle": "Light reactions"
+    },
+    {
+      "name": "Yusuf",
+      "status": "finished",
+      "correctCount": 3,
+      "total": 6,
+      "percent": 50,
+      "weakestTitle": "Light reactions"
+    },
+    {
+      "name": "Amira",
+      "status": "finished",
+      "correctCount": 4,
+      "total": 6,
+      "percent": 67,
+      "weakestTitle": "Light reactions"
+    },
+    {
+      "name": "Arta",
+      "status": "finished",
+      "correctCount": 5,
+      "total": 6,
+      "percent": 83,
+      "weakestTitle": "Light reactions"
+    },
+    {
+      "name": "Elena",
+      "status": "finished",
+      "correctCount": 5,
+      "total": 6,
+      "percent": 83,
+      "weakestTitle": "Light reactions"
+    },
+    {
+      "name": "Kai",
+      "status": "finished",
+      "correctCount": 5,
+      "total": 6,
+      "percent": 83,
+      "weakestTitle": "Why it matters for life on Earth"
+    },
+    {
+      "name": "Sofia",
+      "status": "finished",
+      "correctCount": 5,
+      "total": 6,
+      "percent": 83,
+      "weakestTitle": "Light reactions"
+    },
+    {
+      "name": "Liam",
+      "status": "finished",
+      "correctCount": 6,
+      "total": 6,
+      "percent": 100,
+      "weakestTitle": null
+    },
+    {
+      "name": "Zara",
+      "status": "in-progress",
+      "correctCount": 2,
+      "total": 6,
+      "percent": null,
+      "weakestTitle": null
+    },
+    {
+      "name": "Luka",
+      "status": "not-started",
+      "correctCount": 0,
+      "total": 6,
+      "percent": null,
+      "weakestTitle": null
+    }
+  ]
+}

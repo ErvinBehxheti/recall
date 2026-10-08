@@ -2,6 +2,11 @@
 
 Slidekick rewrites any slide deck into short pages students study at their own pace, then quizzes them and sends every wrong answer back to the page that teaches it.
 
+## The video and the stage script
+
+- The finished promo video: [`media/slidekick-promo.mp4`](media/slidekick-promo.mp4) (75 seconds, with sound). Play it straight from this folder; you do not need to build anything.
+- The stage script for KosICT 15: [`docs/pitch-script.md`](docs/pitch-script.md). It says who says which line and when, including the lines you say while the video plays.
+
 ## Run it
 
 You need [Node.js](https://nodejs.org) 24 or newer.
@@ -57,6 +62,26 @@ npm run make-demos   # sends those PDFs to the AI and saves the lessons in src/d
 1. Save the deck as a PDF in `samples/pdf/`, for example `samples/pdf/volcanoes.pdf`.
 2. Add `"volcanoes"` to the `SLUGS` list in `scripts/make-demos.mts` and run `npm run make-demos`.
 3. In `src/demo/index.ts`, import `./volcanoes.json` and add it to `DEMOS`. Change `DEFAULT_DEMO_SLUG` to `"volcanoes"` if it should be the lesson the seed script and the home page use.
+
+## The promo video
+
+A 75 second video, built with Remotion and finished with ffmpeg. It shows the real product: lesson pages, the quiz and the report are the app's own components, and the stateful screens are screenshots of the running app.
+
+```
+npm run video:capture   # once, and again if the app screens change (about 40 seconds)
+npm run video:studio    # preview and scrub in the browser
+npm run video:render    # frames to out/promo-raw.mp4 (a few minutes)
+npm run video:final     # builds the sound effects, then out/slidekick-promo.mp4, ready to play
+npm run video:sfx       # just the sound effects, as out/sfx.wav
+npm run video:stills    # out/stage-open.png and out/stage-close.png for the opening and closing screens
+```
+
+- `video:capture` seeds a separate database (`data/video.db`), runs its own dev server in `.next-video` with the fake AI, and saves screenshots to `public/video/` (not committed). Your normal `npm run dev` can keep running. It needs internet the first time, for fonts and the browser Remotion uses.
+- Presenter names: change `PRESENTERS` in `remotion/timing.ts`. The product name comes from `src/config/brand.ts`.
+- Sound: the effects (slides landing, the highlighter sweep, marker strokes, the camera moving, the wrong answer, typing and ticks) are synthesized in code, with no samples. Every cue is listed with its loudness in `remotion/sfx-cues.ts`, and its time comes from `remotion/events.ts`, so a moment that moves in the picture moves its sound. The video also works with the sound off.
+- Music (optional): put a track at `public/music/promo.mp3` before `video:final` and it plays as a quiet bed under the effects. Raise `MUSIC_LUFS` in `scripts/finalize-video.sh` to make it louder.
+- To check frames without rendering a video: `npm run video:frames -- 250 1400 2100` writes PNGs to `out/frames/`.
+- The class results in the video come from the seeded demo class and are labelled "Demo class" on screen.
 
 ## Rename the product
 

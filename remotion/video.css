@@ -1,0 +1,10 @@
+@import "../src/app/globals.css";
+@source "../src/components";
+@source "./";
+
+/* CSS animations follow the wall clock, not the video's frame, so they would flicker in a render.
+   The pulse of the loading rows is driven by --pulse instead, set from the frame number. */
+.skeleton-pulse {
+  animation: none !important;
+  opacity: var(--pulse, 1);
+}

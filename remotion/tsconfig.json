@@ -1,0 +1,6 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": { "noEmit": true, "incremental": false, "plugins": [] },
+  "include": ["./**/*.ts", "./**/*.tsx", "../remotion.config.ts"],
+  "exclude": ["../node_modules"]
+}

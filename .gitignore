@@ -34,3 +34,8 @@ next-env.d.ts
 
 # local database
 /data/
+
+# promo video: captured screens are rebuilt by npm run video:capture
+/public/video/
+/remotion/.cache/
+/.next-video/

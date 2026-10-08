@@ -1,0 +1,67 @@
+{
+  "code": "DWZVGX",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "rects": {
+    "joinCode": {
+      "x": 96,
+      "y": 488.296875,
+      "width": 348.9375,
+      "height": 95
+    },
+    "uploadButton": {
+      "x": 96,
+      "y": 316.296875,
+      "width": 154.546875,
+      "height": 53.5
+    },
+    "question1": {
+      "x": 224,
+      "y": 405.796875,
+      "width": 768,
+      "height": 69
+    },
+    "codeInput": {
+      "x": 336,
+      "y": 251.796875,
+      "width": 448,
+      "height": 51.5
+    }
+  },
+  "slides": [
+    "slides/photosynthesis-01.png",
+    "slides/photosynthesis-02.png",
+    "slides/photosynthesis-03.png",
+    "slides/photosynthesis-04.png",
+    "slides/photosynthesis-05.png",
+    "slides/photosynthesis-06.png",
+    "slides/photosynthesis-07.png",
+    "slides/photosynthesis-08.png",
+    "slides/photosynthesis-09.png",
+    "slides/photosynthesis-10.png",
+    "slides/photosynthesis-11.png",
+    "slides/photosynthesis-12.png",
+    "slides/photosynthesis-13.png",
+    "slides/photosynthesis-14.png",
+    "slides/photosynthesis-15.png",
+    "slides/photosynthesis-16.png",
+    "slides/photosynthesis-17.png",
+    "slides/photosynthesis-18.png",
+    "slides/ww1-causes-01.png",
+    "slides/ww1-causes-02.png",
+    "slides/ww1-causes-03.png",
+    "slides/ww1-causes-04.png",
+    "slides/ww1-causes-05.png",
+    "slides/ww1-causes-06.png",
+    "slides/ww1-causes-07.png",
+    "slides/ww1-causes-08.png",
+    "slides/ww1-causes-09.png",
+    "slides/ww1-causes-10.png",
+    "slides/ww1-causes-11.png",
+    "slides/ww1-causes-12.png",
+    "slides/ww1-causes-13.png",
+    "slides/ww1-causes-14.png"
+  ]
+}

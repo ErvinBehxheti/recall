@@ -1,6 +1,6 @@
-# Slidekick
+# Recall
 
-Slidekick rewrites any slide deck into short pages students study at their own pace, then quizzes them and sends every wrong answer back to the page that teaches it.
+Recall rewrites any slide deck into short pages students study at their own pace, then quizzes them and sends every wrong answer back to the page that teaches it.
 
 ## The video and the stage script
 
@@ -17,6 +17,10 @@ npm run dev
 ```
 
 Open http://localhost:3000.
+
+## Demo mode (no API key needed)
+
+Without an API key, Recall runs in demo mode. Everything works, and "Upload slides" turns any PDF or PowerPoint into the sample Photosynthesis lesson after a few seconds, instead of asking the AI. The class page says "Demo mode" under the upload button so nobody is misled. Add a key (below) and demo mode switches off by itself after you restart `npm run dev`.
 
 ## Turn on the real AI
 
@@ -35,7 +39,7 @@ The key stays on this laptop. It is only used by the server part of the app and 
 
 ## Accounts and demo data
 
-Slidekick has two kinds of account.
+Recall has two kinds of account.
 
 - **Teachers** sign up with an email and password, create a class for one of the five subjects (Biology, Chemistry, Math, Albanian, English) and get a six character class code. They upload slides, check the AI's pages and quiz, edit anything, and publish. Their results page shows where the class got stuck.
 - **Students** sign up with their first name and a password. We add a number to make a login name such as `Mira#4821`. They enter the class code, read the lesson and take the quiz. The answers never reach the browser until a student has answered that question. Only each student's first attempt counts for the teacher; retries are practice.

@@ -6,6 +6,7 @@ import { requireUser } from "@/server/auth";
 import { getTeacherClass, listClassStudents } from "@/server/classes";
 import { getDb } from "@/server/db";
 import { parseId } from "@/server/errors";
+import { isDemoMode } from "@/server/generate-deps";
 import { orNotFound } from "@/server/guard";
 import { listClassLessons } from "@/server/lessons";
 
@@ -23,7 +24,7 @@ export default async function ClassPage({ params }: { params: Promise<{ id: stri
       <section aria-labelledby="lessons-title" className="mt-12 max-w-3xl">
         <SectionTitle id="lessons-title">Lessons</SectionTitle>
         <div className="mt-5">
-          <ClassUpload classId={cls.id} />
+          <ClassUpload classId={cls.id} demoMode={isDemoMode()} />
         </div>
         {lessons.length > 0 && (
           <ul className="mt-8 grid gap-1">

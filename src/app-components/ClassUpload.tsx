@@ -10,7 +10,7 @@ import { ACCEPT, precheckFile } from "@/lib/file-kind";
 
 const STATUS_LINES = ["Reading your slides", "Finding the key ideas", "Writing the lesson pages", "Writing your quiz"];
 
-export function ClassUpload({ classId }: { classId: number }) {
+export function ClassUpload({ classId, demoMode = false }: { classId: number; demoMode?: boolean }) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const [working, setWorking] = useState<string | null>(null);
@@ -57,6 +57,12 @@ export function ClassUpload({ classId }: { classId: number }) {
       <p className="mt-3 text-[0.9375rem] text-ink-soft">
         PDF or PowerPoint, up to 20 MB and 60 slides. You can edit everything before students see it.
       </p>
+      {demoMode && (
+        <p data-testid="demo-mode" className="mt-2 max-w-[60ch] text-[0.9375rem]">
+          <span className="font-semibold">Demo mode.</span> There is no AI key on this laptop yet, so any upload
+          becomes the sample Photosynthesis lesson.
+        </p>
+      )}
       {error && (
         <p role="alert" className="mt-4 text-incorrect">
           {error}

@@ -35,7 +35,7 @@ export function EndCard({ frame }: { frame: number }) {
         Any slides. <HighlightSwipe progress={ramp(frame, ...END.subject)}>Any subject.</HighlightSwipe>
       </p>
       <p style={{ fontSize: 56, color: COLORS.inkSoft, opacity: ramp(frame, 2192, 2204) }}>{SUBJECTS}</p>
-      <p style={{ fontSize: 56, marginTop: 28, opacity: ramp(frame, 2206, 2218) }}>Made by {PRESENTERS}, age 14.</p>
+      <p style={{ fontSize: 56, marginTop: 28, opacity: ramp(frame, 2206, 2218) }}>Made by {PRESENTERS}.</p>
     </div>
   );
 }

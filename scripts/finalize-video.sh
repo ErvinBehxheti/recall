@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # scripts/finalize-video.sh
-# Turns Remotion's render (out/promo-raw.mp4) into out/slidekick-promo.mp4 for venue laptops:
+# Turns Remotion's render (out/promo-raw.mp4) into out/recall-promo.mp4 for venue laptops:
 # H.264 High, yuv420p, AAC audio, index at the front so it starts playing at once.
 # Audio, whichever of these exist:
 #   - out/sfx.wav (npm run video:sfx): the synthesized sound design
@@ -10,7 +10,7 @@
 set -euo pipefail
 
 RAW="${RAW:-out/promo-raw.mp4}"
-OUT="${OUT:-out/slidekick-promo.mp4}"
+OUT="${OUT:-out/recall-promo.mp4}"
 SFX="out/sfx.wav"
 MUSIC="${MUSIC:-public/music/promo.mp3}"
 MUSIC_LUFS="-23" # the effects sit around -20 LUFS; raise this number to make the music louder

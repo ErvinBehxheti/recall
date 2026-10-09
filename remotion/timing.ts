@@ -5,8 +5,8 @@ export const WIDTH = 1920;
 export const HEIGHT = 1080;
 export const DURATION = 2250; // 75 seconds
 
-/** Shown on the end card. Replace with the presenters' first names. */
-export const PRESENTERS = "Name and Name";
+/** Shown on the end card: the presenters' first names. */
+export const PRESENTERS = "Ensar, Diar and Omer";
 
 export const BEATS = {
   hook: [0, 210],

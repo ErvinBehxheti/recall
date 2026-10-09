@@ -4,7 +4,7 @@ Recall rewrites any slide deck into short pages students study at their own pace
 
 ## The video and the stage script
 
-- The finished promo video: [`media/slidekick-promo.mp4`](media/slidekick-promo.mp4) (75 seconds, with sound). Play it straight from this folder; you do not need to build anything.
+- The finished promo video: [`media/recall-promo.mp4`](media/recall-promo.mp4) (75 seconds, with sound). Play it straight from this folder; you do not need to build anything.
 - The stage script for KosICT 15: [`docs/pitch-script.md`](docs/pitch-script.md). It says who says which line and when, including the lines you say while the video plays.
 
 ## Run it
@@ -75,7 +75,7 @@ A 75 second video, built with Remotion and finished with ffmpeg. It shows the re
 npm run video:capture   # once, and again if the app screens change (about 40 seconds)
 npm run video:studio    # preview and scrub in the browser
 npm run video:render    # frames to out/promo-raw.mp4 (a few minutes)
-npm run video:final     # builds the sound effects, then out/slidekick-promo.mp4, ready to play
+npm run video:final     # builds the sound effects, then out/recall-promo.mp4, ready to play
 npm run video:sfx       # just the sound effects, as out/sfx.wav
 npm run video:stills    # out/stage-open.png and out/stage-close.png for the opening and closing screens
 ```

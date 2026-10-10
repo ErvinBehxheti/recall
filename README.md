@@ -5,7 +5,8 @@ Recall rewrites any slide deck into short pages students study at their own pace
 ## The video and the stage script
 
 - The finished promo video: [`media/recall-promo.mp4`](media/recall-promo.mp4) (75 seconds, with sound). Play it straight from this folder; you do not need to build anything.
-- The stage script for KosICT 15: [`docs/pitch-script.md`](docs/pitch-script.md). It says who says which line and when, including the lines you say while the video plays.
+- The easy 3-minute plan with 20 practice jury questions (10 story, 10 technical): [`docs/pitch-3min.md`](docs/pitch-3min.md). Start here.
+- The long stage script for KosICT 15: [`docs/pitch-script.md`](docs/pitch-script.md). It says who says which line and when, including the lines you say while the video plays.
 
 ## Run it
 

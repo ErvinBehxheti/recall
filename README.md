@@ -4,9 +4,8 @@ Recall rewrites any slide deck into short pages students study at their own pace
 
 ## The video and the stage script
 
-- The finished promo video: [`media/recall-promo.mp4`](media/recall-promo.mp4) (75 seconds, with sound). Play it straight from this folder; you do not need to build anything.
-- The easy 3-minute plan with 20 practice jury questions (10 story, 10 technical): [`docs/pitch-3min.md`](docs/pitch-3min.md). Start here.
-- The long stage script for KosICT 15: [`docs/pitch-script.md`](docs/pitch-script.md). It says who says which line and when, including the lines you say while the video plays.
+- The finished 2:30 video: [`media/recall-promo-2m30.mp4`](media/recall-promo-2m30.mp4) (150 seconds, quiet sound effects, no music). Play it straight from this folder; you do not need to build anything. The shorter 75 second cut is [`media/recall-promo.mp4`](media/recall-promo.mp4).
+- The stage script for KosICT 15: [`docs/pitch-script.md`](docs/pitch-script.md), with the clock and the new lines for the 2:30 video in [`docs/pitch-script-2m30.md`](docs/pitch-script-2m30.md). They say who says which line and when, including the lines you say while the video plays.
 
 ## Run it
 
@@ -53,7 +52,7 @@ For a demo with no setup, run:
 npm run seed
 ```
 
-It creates a teacher (`teacher@demo.test`, password `demo-teacher-1`), an 8A Biology class with a published Photosynthesis lesson, and 12 students with realistic results (password `demo-student-1`; the script prints their login names and the class code). Log in as the teacher to see the results page, or as any student to take the quiz.
+It creates a teacher (`teacher@demo.test`, password `demo-teacher-1`), an 8A Biology class with a published Photosynthesis lesson, and 12 students with realistic results (password `demo-student-1`). Every demo student's login is their name with `#1234`, for example `Elena#1234`, `Sofia#1234` or `Arta#1234`, the same on every laptop. The script prints the full list and the class code. Log in as the teacher to see the results page, or as any student to take the quiz.
 
 The two sample lessons in `src/demo/` are used by the seed script and the home page. Once you have an API key you can replace them with real AI output with `npm run decks` and `npm run make-demos`.
 
@@ -70,7 +69,7 @@ npm run make-demos   # sends those PDFs to the AI and saves the lessons in src/d
 
 ## The promo video
 
-A 75 second video, built with Remotion and finished with ffmpeg. It shows the real product: lesson pages, the quiz and the report are the app's own components, and the stateful screens are screenshots of the running app.
+A 2:30 video (the first 75 seconds are the original cut), built with Remotion and finished with ffmpeg. It shows the real product: lesson pages, the quiz and the report are the app's own components, and the stateful screens are screenshots of the running app.
 
 ```
 npm run video:capture   # once, and again if the app screens change (about 40 seconds)

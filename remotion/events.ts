@@ -46,8 +46,25 @@ export const SHEET = {
 /** The ink thread from the missed answer back to its page. */
 export const INK = [1558, 1650] as const;
 
-/** The end card. */
-export const END = { from: 2128, wordmark: [2150, 2186], subject: [2180, 2206] } as const;
+/**
+ * Chapters added after the class results (frames 2010 to 4260): the teacher's controls, the student side
+ * and two rules. The first 2010 frames are untouched, so the stage script's pinned lines still match.
+ */
+export const MORE = {
+  draftFade: [2210, 2240],
+  statusSwipe: [2252, 2282],
+  titleSwipe: [2450, 2490],
+  scoreSwipe: [2840, 2880],
+  privateSwipe: [3125, 3170],
+  nameSwipe: [3350, 3390],
+  fairSwipe: [3640, 3690],
+} as const;
+
+/** The camera starts to pull back over the whole desk here. */
+export const PULL_START = 4260;
+
+/** The end card. The pull-back takes 100 frames and the card begins 18 frames after it ends. */
+export const END = { from: 4378, wordmark: [4400, 4436], subject: [4430, 4456] } as const;
 
 /** Captions at the bottom. Nothing is smaller than 56px, so the video works with the sound off. */
 export const CAPTIONS = [
@@ -59,4 +76,14 @@ export const CAPTIONS = [
   { from: 1372, to: 1498, text: "Wrong answer?" },
   { from: 1502, to: 1770, text: "Straight back to the page that teaches it." },
   { from: 1846, to: 2012, text: "Who got it. Which page lost them." },
+  { from: 2100, to: 2200, text: "Every lesson starts as a draft." },
+  { from: 2204, to: 2370, text: "Students see it after you publish." },
+  { from: 2395, to: 2510, text: "Change any page." },
+  { from: 2514, to: 2650, text: "Fix any answer." },
+  { from: 2770, to: 2890, text: "Students see their lessons." },
+  { from: 2894, to: 3000, text: "And how they are doing." },
+  { from: 3310, to: 3420, text: "Students need a first name." },
+  { from: 3424, to: 3520, text: "No email. No phone number." },
+  { from: 3895, to: 4010, text: "Every student. Every topic." },
+  { from: 4014, to: 4180, text: "So the teacher knows what to re-teach." },
 ];

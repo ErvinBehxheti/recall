@@ -31,11 +31,11 @@ export function EndCard({ frame }: { frame: number }) {
           <Wordmark size="lg" highlightProgress={ramp(frame, ...END.wordmark)} />
         </div>
       </div>
-      <p className="font-serif font-semibold" style={{ fontSize: 88, opacity: ramp(frame, 2172, 2184) }}>
+      <p className="font-serif font-semibold" style={{ fontSize: 88, opacity: ramp(frame, 4422, 4434) }}>
         Any slides. <HighlightSwipe progress={ramp(frame, ...END.subject)}>Any subject.</HighlightSwipe>
       </p>
-      <p style={{ fontSize: 56, color: COLORS.inkSoft, opacity: ramp(frame, 2192, 2204) }}>{SUBJECTS}</p>
-      <p style={{ fontSize: 56, marginTop: 28, opacity: ramp(frame, 2206, 2218) }}>Made by {PRESENTERS}.</p>
+      <p style={{ fontSize: 56, color: COLORS.inkSoft, opacity: ramp(frame, 4442, 4454) }}>{SUBJECTS}</p>
+      <p style={{ fontSize: 56, marginTop: 28, opacity: ramp(frame, 4456, 4468) }}>Made by {PRESENTERS}.</p>
     </div>
   );
 }

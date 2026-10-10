@@ -3,7 +3,7 @@
 export const FPS = 30;
 export const WIDTH = 1920;
 export const HEIGHT = 1080;
-export const DURATION = 2250; // 75 seconds
+export const DURATION = 4500; // 150 seconds (2:30)
 
 /** Shown on the end card: the presenters' first names. */
 export const PRESENTERS = "Ensar, Diar and Omer";
@@ -15,5 +15,6 @@ export const BEATS = {
   students: [880, 1260],
   twist: [1260, 1760],
   results: [1760, 2010],
-  close: [2010, 2250],
+  more: [2010, 4260],
+  close: [4260, 4500],
 } as const;

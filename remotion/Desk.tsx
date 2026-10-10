@@ -2,17 +2,22 @@
 import { AbsoluteFill } from "remotion";
 import { evolvePath } from "@remotion/paths";
 import { ramp } from "./ease";
-import { INK } from "./events";
 import { APPEAR, COLORS, LIFT, LINK, SHEETS, WEAK_PAGE, cameraAt, pageBox } from "./layout";
+import { INK, MORE } from "./events";
 import {
   JoinSheet,
   LessonPageSheet,
+  NoteSheet,
   QuizSheet,
   ReviewSheet,
+  SignupSheet,
   StudentHomeSheet,
   StudentResultsSheet,
+  StudentSubjectSheet,
   TOTAL_PAGES,
   TeacherClassSheet,
+  TeacherEditorSheet,
+  TeacherLessonsSheet,
   TeacherResultsSheet,
   UploadSheet,
 } from "./sheets";
@@ -73,6 +78,30 @@ export function Desk({ frame }: { frame: number }) {
         <QuizSheet frame={frame} appear={APPEAR.quiz} />
         <StudentResultsSheet frame={frame} appear={APPEAR.studentResults} />
         <TeacherResultsSheet frame={frame} appear={APPEAR.teacherResults} />
+        <TeacherLessonsSheet frame={frame} appear={APPEAR.teacherMore} />
+        <TeacherEditorSheet frame={frame} appear={APPEAR.teacherMore} />
+        <StudentSubjectSheet frame={frame} appear={APPEAR.studentMore} />
+        <NoteSheet
+          box={SHEETS.notePrivate}
+          frame={frame}
+          appear={APPEAR.studentMore}
+          label="Private quiz"
+          before="The right answer "
+          mark="never reaches the browser"
+          after=" until the student has answered."
+          swipe={MORE.privateSwipe}
+        />
+        <SignupSheet frame={frame} appear={APPEAR.studentMore} />
+        <NoteSheet
+          box={SHEETS.noteFair}
+          frame={frame}
+          appear={APPEAR.studentMore}
+          label="Fair to everyone"
+          before="Only the "
+          mark="first attempt"
+          after=" counts for the teacher. Retries are practice."
+          swipe={MORE.fairSwipe}
+        />
         <InkLine frame={frame} />
       </div>
     </AbsoluteFill>

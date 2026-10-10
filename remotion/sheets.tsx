@@ -16,7 +16,7 @@ import { estimateMinutes } from "@/lib/estimate";
 import { insightParts, type ClassReport, type StudentRow } from "@/lib/class-report";
 import { verdict } from "@/lib/scoring";
 import { ramp } from "./ease";
-import { SHEET as E } from "./events";
+import { MORE, SHEET as E } from "./events";
 import { COLORS, PAGE_SWIPE, FINALE_SWIPE_START, RECTS, SHEETS, SLIDES, VIEWPORT, WEAK_PAGE, LINK, pageBox, type Box } from "./layout";
 import { Marker } from "./Marker";
 import report from "./generated/report.json";
@@ -320,6 +320,84 @@ export function TeacherResultsSheet({ frame, appear }: { frame: number; appear: 
           student&apos;s first attempt counts.
         </p>
       </div>
+    </Sheet>
+  );
+}
+
+type Rect = { x: number; y: number; width: number; height: number };
+
+/** A highlighter stroke over one thing in a screenshot. `rect` is in screenshot pixels, `box` is the sheet. */
+function Stroke({ box, rect, frame, swipe }: { box: Box; rect: Rect; frame: number; swipe: readonly [number, number] }) {
+  const k = shotScale(box);
+  return (
+    <Marker
+      progress={ramp(frame, swipe[0], swipe[1])}
+      style={{ left: rect.x * k - 10, top: (rect.y + rect.height * 0.14) * k, width: rect.width * k + 20, height: rect.height * k * 0.72 }}
+    />
+  );
+}
+
+/** Teacher: the class page with the new lesson as a draft, which turns into published. */
+export function TeacherLessonsSheet({ frame, appear }: { frame: number; appear: number }) {
+  const box = SHEETS.teacherLessons;
+  return (
+    <Sheet box={box} frame={frame} appear={appear}>
+      <Shot name="teacher-lessons-draft.png" />
+      <div style={{ position: "absolute", inset: 0, opacity: ramp(frame, ...MORE.draftFade) }}>
+        <Shot name="teacher-lessons-published.png" />
+      </div>
+      <Stroke box={box} rect={RECTS.lessonStatus} frame={frame} swipe={MORE.statusSwipe} />
+    </Sheet>
+  );
+}
+
+/** Teacher: the editor, where every page is plain text the teacher can change. */
+export function TeacherEditorSheet({ frame, appear }: { frame: number; appear: number }) {
+  const box = SHEETS.teacherEditor;
+  return (
+    <Sheet box={box} frame={frame} appear={appear}>
+      <Shot name="teacher-editor.png" />
+      <Stroke box={box} rect={RECTS.page1Title} frame={frame} swipe={MORE.titleSwipe} />
+    </Sheet>
+  );
+}
+
+/** Student: the lesson list with the score from the first attempt. */
+export function StudentSubjectSheet({ frame, appear }: { frame: number; appear: number }) {
+  const box = SHEETS.studentSubject;
+  return (
+    <Sheet box={box} frame={frame} appear={appear}>
+      <Shot name="student-subject.png" />
+      <Stroke box={box} rect={RECTS.subjectScore} frame={frame} swipe={MORE.scoreSwipe} />
+    </Sheet>
+  );
+}
+
+/** Student: the sign-up form. Only a first name and a password. */
+export function SignupSheet({ frame, appear }: { frame: number; appear: number }) {
+  const box = SHEETS.signup;
+  return (
+    <Sheet box={box} frame={frame} appear={appear}>
+      <Shot name="signup-student.png" />
+      <Stroke box={box} rect={RECTS.signupName} frame={frame} swipe={MORE.nameSwipe} />
+    </Sheet>
+  );
+}
+
+type NoteProps = { box: Box; frame: number; appear: number; label: string; before: string; mark: string; after: string; swipe: readonly [number, number] };
+
+/** A sheet of one big sentence with one phrase highlighted. */
+export function NoteSheet({ box, frame, appear, label, before, mark, after, swipe }: NoteProps) {
+  return (
+    <Sheet box={box} frame={frame} appear={appear} padding={110}>
+      <p className="text-ink-soft" style={{ fontSize: 40 }}>
+        {label}
+      </p>
+      <p className="mt-8 font-serif font-semibold text-ink" style={{ fontSize: 92, lineHeight: 1.22 }}>
+        {before}
+        <HighlightSwipe progress={ramp(frame, ...swipe)}>{mark}</HighlightSwipe>
+        {after}
+      </p>
     </Sheet>
   );
 }

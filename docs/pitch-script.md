@@ -137,7 +137,7 @@ Nothing breaks. The rules need at least two children to speak, and Ensar and Dia
 ## Before you go on stage
 
 - [ ] On this laptop, run `npm run seed` once. It prints the student login names and creates the demo class. (The database does not exist yet on this laptop.)
-- [ ] Window 1, the student: log in as **Sofia**, **Arta** or **Elena** (the login looks like `sofia#1234`; the seed prints the number). Password `demo-student-1`. Open Biology, then Photosynthesis, then **See your result**. It shows 5 / 6 and **Review page 4: Light reactions**. Leave it open. Do not take the quiz again as this student.
+- [ ] Window 1, the student: log in as `Sofia#1234`, `Arta#1234` or `Elena#1234` (type the name, then `#1234`, no spaces). Password `demo-student-1`. Open Biology, then Photosynthesis, then **See your result**. It shows 5 / 6 and **Review page 4: Light reactions**. Leave it open. Do not take the quiz again as this student.
 - [ ] Window 2, the teacher: log in as `teacher@demo.test`, password `demo-teacher-1`. Open the Photosynthesis lesson results. It says 8 of 10 students struggled with Light reactions.
 - [ ] The video file is on the laptop, ready to play full screen, with the volume at about half.
 - [ ] Practice the move from window 1 to window 2 until nobody has to look for it.

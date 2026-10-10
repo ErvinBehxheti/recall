@@ -9,7 +9,7 @@ import { webpackOverride } from "../remotion/webpack";
 
 const args = process.argv.slice(2);
 const frames =
-  args[0] === "all" ? Array.from({ length: 75 }, (_, i) => i * 30) : args.map(Number).filter((n) => Number.isInteger(n) && n >= 0);
+  args[0] === "all" ? Array.from({ length: 150 }, (_, i) => i * 30) : args.map(Number).filter((n) => Number.isInteger(n) && n >= 0);
 if (frames.length === 0) throw new Error("Give frame numbers, or 'all'.");
 
 mkdirSync("out/frames", { recursive: true });

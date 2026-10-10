@@ -114,6 +114,7 @@ try {
   await teacherPage.getByLabel("Class name").fill("8A Biology");
   await teacherPage.getByRole("button", { name: "Create class" }).click();
   await teacherPage.getByTestId("join-code").waitFor();
+  const classUrl = teacherPage.url();
   const code = ((await teacherPage.getByTestId("join-code").textContent()) ?? "").trim();
   await rememberText("joinCode", teacherPage.getByTestId("join-code"));
   await remember("uploadButton", teacherPage.getByRole("button", { name: "Upload slides" }));
@@ -129,16 +130,45 @@ try {
   await remember("question1", question);
   await shoot(teacherPage, "teacher-review.png");
 
+  // The top of the editor (the page fields), then the class page with the lesson as a draft and as published.
+  const lessonUrl = teacherPage.url();
+  await teacherPage.evaluate(() => window.scrollTo(0, 0));
+  await teacherPage.waitForTimeout(300);
+  await remember("page1Title", teacherPage.getByLabel("Page 1 title"));
+  await shoot(teacherPage, "teacher-editor.png");
+  await teacherPage.goto(classUrl);
+  await teacherPage.waitForLoadState("networkidle");
+  await shoot(teacherPage, "teacher-lessons-draft.png");
+  await teacherPage.goto(lessonUrl);
+  const publishing = teacherPage.waitForResponse((r) => r.url().includes("/status") && r.ok(), { timeout: 30_000 });
+  await teacherPage.getByRole("button", { name: "Publish", exact: true }).click();
+  await publishing;
+  await teacherPage.goto(classUrl);
+  await teacherPage.getByText("Published", { exact: true }).first().waitFor();
+  await remember("lessonStatus", teacherPage.getByText("Published", { exact: true }).first());
+  await shoot(teacherPage, "teacher-lessons-published.png");
+
   // Student: the subject list, and the join screen with the new class code typed in.
   const studentPage = await (await browser.newContext({ baseURL: BASE, viewport, deviceScaleFactor: 2 })).newPage();
   await logIn(studentPage, seeded.students[0].login, DEMO_STUDENT_PASSWORD);
   await studentPage.goto("/learn");
   await studentPage.waitForLoadState("networkidle");
   await shoot(studentPage, "student-home.png");
+  await studentPage.goto("/learn/biology");
+  await studentPage.waitForLoadState("networkidle");
+  await remember("subjectScore", studentPage.getByText(/^\d+ \/ \d+$/).first());
+  await shoot(studentPage, "student-subject.png");
   await studentPage.goto("/join");
   await studentPage.getByLabel("Class code").fill(code);
   await remember("codeInput", studentPage.getByLabel("Class code"));
   await shoot(studentPage, "student-join.png");
+
+  // A new student's sign-up: only a first name and a password.
+  const signupPage = await (await browser.newContext({ baseURL: BASE, viewport, deviceScaleFactor: 2 })).newPage();
+  await signupPage.goto("/signup/student");
+  await signupPage.getByLabel("Your first name").waitFor();
+  await remember("signupName", signupPage.getByLabel("Your first name"));
+  await shoot(signupPage, "signup-student.png");
 
   // The slides of both sample decks, for the pile at the start.
   const slidePage = await (await browser.newContext({ viewport, deviceScaleFactor: 0.5 })).newPage();

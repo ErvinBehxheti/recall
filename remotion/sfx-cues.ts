@@ -3,7 +3,7 @@
 // so a moment that moves in the picture moves its sound too. Gains are relative (0 to 1) and are meant to
 // be tuned here: scripts/make-sfx.mts turns these cues into out/sfx.wav.
 import { mulberry32 } from "../src/lib/random";
-import { END, INK, OPENING, PLATES, SHEET, SLIDE_COUNT, SLIDE_FALL, WIPE, CAPTIONS, slideSpawn } from "./events";
+import { END, INK, MORE, OPENING, PLATES, SHEET, SLIDE_COUNT, SLIDE_FALL, WIPE, CAPTIONS, slideSpawn } from "./events";
 import { FINALE_SWIPE_START, PAGE_SWIPE, STOPS } from "./layout";
 import { DURATION, FPS } from "./timing";
 
@@ -69,6 +69,12 @@ export function buildCues(): Cue[] {
     [SHEET.publishedSwipe, 0.22],
     [SHEET.linkMarker, 0.22],
     [SHEET.insightSwipe, 0.22],
+    [MORE.statusSwipe, 0.22],
+    [MORE.titleSwipe, 0.22],
+    [MORE.scoreSwipe, 0.22],
+    [MORE.privateSwipe, 0.22],
+    [MORE.nameSwipe, 0.22],
+    [MORE.fairSwipe, 0.22],
     [END.wordmark, 0.28],
     [END.subject, 0.26],
     ...Object.values(PAGE_SWIPE).map((pair): [readonly [number, number], number] => [pair, 0.2]),
@@ -105,6 +111,9 @@ export function buildCues(): Cue[] {
     cues.push({ frame, voice: "key", gain: 0.12, pan: 0.3 });
   }
   cues.push({ frame: SHEET.reteach, voice: "thock", gain: 0.35 });
+
+  // The lesson turns from draft to published.
+  cues.push({ frame: MORE.draftFade[0], voice: "thock", gain: 0.4 });
 
   // Every caption lands softly.
   for (const caption of CAPTIONS) cues.push({ frame: caption.from + 1, voice: "thock", gain: 0.3 });

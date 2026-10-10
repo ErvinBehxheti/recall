@@ -1,5 +1,5 @@
 {
-  "code": "RMG8PZ",
+  "code": "H7BTN4",
   "viewport": {
     "width": 1280,
     "height": 720
@@ -8,7 +8,7 @@
     "joinCode": {
       "x": 96,
       "y": 488.296875,
-      "width": 324.78125,
+      "width": 313.890625,
       "height": 95
     },
     "uploadButton": {
@@ -23,7 +23,31 @@
       "width": 768,
       "height": 69
     },
+    "page1Title": {
+      "x": 224,
+      "y": 541.296875,
+      "width": 768,
+      "height": 43.5
+    },
+    "lessonStatus": {
+      "x": 775.359375,
+      "y": 455.296875,
+      "width": 72.640625,
+      "height": 24
+    },
+    "subjectScore": {
+      "x": 1004.015625,
+      "y": 253.296875,
+      "width": 35.984375,
+      "height": 24
+    },
     "codeInput": {
+      "x": 336,
+      "y": 251.796875,
+      "width": 448,
+      "height": 51.5
+    },
+    "signupName": {
       "x": 336,
       "y": 251.796875,
       "width": 448,

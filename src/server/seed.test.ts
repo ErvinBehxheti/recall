@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { authenticate } from "./accounts";
 import { openDb } from "./db";
 import { getLessonResults } from "./results";
-import { DEMO_STUDENT_PASSWORD, DEMO_TEACHER, seedDemo } from "./seed";
+import { DEMO_STUDENT_NUMBER, DEMO_STUDENT_PASSWORD, DEMO_TEACHER, seedDemo } from "./seed";
 
 describe("seedDemo", () => {
   it("builds a class with 12 students, a published lesson and realistic first attempts", async () => {
@@ -25,6 +25,15 @@ describe("seedDemo", () => {
       expect.arrayContaining(["finished", "in-progress", "not-started"]),
     );
     expect(report!.weakest.percent).toBeLessThan(60);
+  });
+
+  it("gives every demo student the same fixed number, so the logins never change between laptops", async () => {
+    const db = openDb(":memory:");
+    const result = await seedDemo(db);
+    if (result === "exists") throw new Error("expected a fresh database");
+    expect(result.students.map((s) => s.login)).toContain("Elena#1234");
+    for (const s of result.students) expect(s.login).toBe(`${s.name}#${DEMO_STUDENT_NUMBER}`);
+    expect((await authenticate(db, "elena#1234", DEMO_STUDENT_PASSWORD))?.name).toBe("Elena");
   });
 
   it("does nothing the second time", async () => {

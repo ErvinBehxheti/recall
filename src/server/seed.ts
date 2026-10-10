@@ -8,6 +8,8 @@ import { publishLesson, saveDraftLesson } from "./lessons";
 
 export const DEMO_TEACHER = { name: "Ms Hoxha", email: "teacher@demo.test", password: "demo-teacher-1" };
 export const DEMO_STUDENT_PASSWORD = "demo-student-1";
+/** Every demo student gets this number, so the logins are the same on every laptop, like Elena#1234. */
+export const DEMO_STUDENT_NUMBER = 1234;
 
 const STUDENT_NAMES = ["Arta", "Liam", "Sofia", "Noah", "Amira", "Leon", "Mia", "Yusuf", "Elena", "Kai", "Zara", "Luka"];
 const WEAK_QUESTION_INDEX = 2;
@@ -37,7 +39,7 @@ export async function seedDemo(db: Db, rng: () => number = mulberry32(2026)): Pr
 
   const students: SeedResult["students"] = [];
   for (const [i, name] of STUDENT_NAMES.entries()) {
-    const { user, login } = await createStudent(db, { name, password: DEMO_STUDENT_PASSWORD });
+    const { user, login } = await createStudent(db, { name, password: DEMO_STUDENT_PASSWORD }, () => DEMO_STUDENT_NUMBER);
     joinClass(db, user, cls.joinCode);
     students.push({ name, login });
     if (i === STUDENT_NAMES.length - 1) continue; // never started
